@@ -1,6 +1,11 @@
 class SpotsController < ApplicationController
   def index
     @spots = Spot.all
+    @location_hash = Gmaps4rails.build_markers(@spots.where.not(:location_latitude => nil)) do |spot, marker|
+      marker.lat spot.location_latitude
+      marker.lng spot.location_longitude
+      marker.infowindow "<h5><a href='/spots/#{spot.id}'>#{spot.created_at}</a></h5><small>#{spot.location_formatted_address}</small>"
+    end
 
     render("spots/index.html.erb")
   end
