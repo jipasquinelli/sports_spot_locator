@@ -1,6 +1,8 @@
 class Photo < ApplicationRecord
   # Direct associations
 
+  belongs_to :spot
+
   belongs_to :sport,
              :required => false
 
