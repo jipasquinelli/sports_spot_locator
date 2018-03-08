@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  belongs_to :spot,
+             :required => false
+
   belongs_to :photo,
              :counter_cache => true
 
