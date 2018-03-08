@@ -1,6 +1,9 @@
 class Photo < ApplicationRecord
   # Direct associations
 
+  belongs_to :sport,
+             :required => false
+
   has_many   :comments,
              :dependent => :destroy
 
