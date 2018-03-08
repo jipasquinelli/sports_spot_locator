@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "photos#index"
   # Routes for the Spot resource:
   # CREATE
   get "/spots/new", :controller => "spots", :action => "new"
